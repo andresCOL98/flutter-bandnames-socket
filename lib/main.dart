@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Material App',
-        home: StatusPage(key: key),
+        home: HomePage(key: key),
         routes: {
           'home': (_) => const HomePage(),
           'status': (_) => const StatusPage(),

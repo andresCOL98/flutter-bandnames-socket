@@ -26,14 +26,12 @@ class SocketService with ChangeNotifier {
   void _initConfig(){
     debugPrint("por aca paso?");
     // Dart client
-    _socket = io.io('https://192.168.0.4:3003/', 
-        {
-          'transports': ['websocket'],
-          'autoConnect': true,
-        }
+    _socket = io.io('https://c082-186-81-100-230.ngrok.io/', 
+        io.OptionBuilder()
+          .setTransports(['websocket']) // for Flutter or Dart VM
+          .setExtraHeaders({'foo': 'bar'}) // optional
+          .build()
     );
-    _socket.connect();
-
 
     _socket.onConnect((_) {
       _serverStatus = ServerStatus.online;
